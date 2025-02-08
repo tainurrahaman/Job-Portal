@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import registerAnimationData from "../assets/Lottie/register.json";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import SocialLogin from "./Shared/SocialLogin";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const Register = () => {
               </fieldset>
             </div>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
