@@ -18,7 +18,9 @@ const Navbar = () => {
 
   const menu = (
     <>
-      <Link to="/">Home</Link>
+      <Link to="/" className="btn">
+        Home
+      </Link>
     </>
   );
 
