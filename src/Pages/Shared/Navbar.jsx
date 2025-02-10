@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
 import logo from "../../assets/logo.png";
+import useAuth from "../../Hooks/UseAuth";
 
 const Navbar = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser } = useAuth();
 
   const handleLogout = () => {
     logoutUser()
@@ -17,11 +16,18 @@ const Navbar = () => {
   };
 
   const menu = (
-    <>
-      <Link to="/" className="btn">
+    <div className="space-x-2 ">
+      <Link to="/" className="btn rounded-lg hover:bg-gray-600">
         Home
       </Link>
-    </>
+      {user?.email ? (
+        <Link to="/myApplication" className="btn rounded-lg hover:bg-gray-600">
+          My Application
+        </Link>
+      ) : (
+        ""
+      )}
+    </div>
   );
 
   return (

@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
 
 const JobApply = () => {
   const { id } = useParams();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
-  console.log(id, user);
   const submitJobApplication = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -39,6 +39,7 @@ const JobApply = () => {
             icon: "success",
             draggable: true,
           });
+          navigate("/myApplication");
         }
       });
   };
