@@ -48,7 +48,7 @@ const LatestJobCard = ({ job }) => {
           </p>
         </div>
         <div className="mt-3">
-          <Link>
+          <Link to={`/jobs/${_id}`}>
             <button className="btn btn-primary w-full">Apply</button>
           </Link>
         </div>
