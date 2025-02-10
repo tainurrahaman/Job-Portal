@@ -1,9 +1,9 @@
 import { BsBagFill } from "react-icons/bs";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const JobCardDetails = () => {
-  const { title, jobType } = useLoaderData();
+  const { title, jobType, _id } = useLoaderData();
 
   return (
     <div className="my-6">
@@ -25,9 +25,11 @@ const JobCardDetails = () => {
           </p>
         </div>
         <div>
-          <button className="flex items-center gap-1 bg-blue-600 p-3 rounded-lg hover:bg-purple-800">
-            <IoCheckmarkCircleOutline></IoCheckmarkCircleOutline> Apply Now
-          </button>
+          <Link to={`/jobApply/${_id}`}>
+            <button className="flex items-center gap-1 bg-blue-600 p-3 rounded-lg hover:bg-purple-800">
+              <IoCheckmarkCircleOutline></IoCheckmarkCircleOutline> Apply Now
+            </button>
+          </Link>
         </div>
       </div>
       <div className="divider"></div>
