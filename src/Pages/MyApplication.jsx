@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
 import useAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyApplication = () => {
   const { user } = useAuth();
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/job-application?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(data);
-      });
+    // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setJobs(data);
+    //   });
+
+    axios
+      .get(`http://localhost:5000/job-application?email=${user.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setJobs(res.data));
   }, [user.email]);
 
   const handleJobDelete = (id) => {
